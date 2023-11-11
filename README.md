@@ -70,6 +70,58 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 ![CW 11](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/762464df-ea03-457b-9278-09908b02911c)
 
 
+## Configuring Security Onion
+
+* In this section we will once again be creating a new VM, this time mounting the Security Onion ISO. For the Operating system version, I chose `CentOS 7 64-bit`.
+
+![SO 1](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a012ed2d-43ad-43e7-86b2-dee72393ff10)
+
+![SO 2](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/cb8081ae-101a-4b7d-b51e-e924f1893233)
+
+* I added two additional network adapters. One of them connects to pfSense via virtual network 4 (VMnet4). The other one will be used to monitor traffic via the SPAN port using VMnet5.
+
+![SO 3](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/90b72196-92ac-42fb-bb1b-d1e922057f88)
+
+* Then I went through the standard Security Onion setup.
+
+![SO 4](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/f9bed30c-93f3-4f21-9707-81f182b99a98)
+
+![SO 5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a2a29d3d-26cc-4c79-bf6f-a830eb57fb76)
+
+* I made sure to note the `Management IP` since I will be using it to access the Web Configurator. The IP in this case was `192.168.9.129`.
+
+![SO 6](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/db922864-580a-40b1-9de8-2ae1b780fcf3)
+
+![SO 7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/3d86f904-e34e-4ba5-96e7-e56b727431c4)
+
+* Once Security Onion was set up I created a new VM running Ubuntu. This machine will have access to Security Onion and it will simulate a SOC/Security Analyst accessing a SIEM or any security tool from their device.
+
+![UB 1](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/3dc8a161-bf66-462c-8873-334dc2960d50)
+
+![UB 2](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/bca06209-8ba8-4063-a209-e3cd40b43ebb)
+
+![UB 3](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/5ed532f0-c4a3-42e0-8fba-f2a86e2c12db)
+
+* After the Ubuntu setup finished, I opened the command line and installed `net-tools`. I then ran `ifconfig` to determine what the IP of this Ubuntu machine was. In this case, it was `192.168.9.130`. I will be whitelisting this IP Address within the Security Onion interface to allow this Ubuntu machine to manage Security Onion remotely using the web interface.
+
+![UB 4](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/f1c33cb1-b3ea-49c5-a777-faf84f36a235)
+
+![UB 5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/89c4a8a3-56e1-462a-8c71-253d85fc07c5)
+  
+* I forgot to get a screenshot of the process of adding a new firewall rule to Security Onion, but the steps are as follows:
+* 1) I navigated back to the Security Onion VM and logged in with my credentials.
+  2) I ran `sudo so-allow`.
+  3) When prompted to choose a role for the IP or Range I chose `a` for `Analyst`.
+  4) Finally, I added the Unbuntu instance IP address to the rule list.
+ 
+* With this new firewall rule created I was able to access the SO web interface from the Unbuntu machine.
+
+![UB 7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/19342f0d-37a9-4a3c-b321-33702854c1f0)
+
+![UB 8](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/9e625f98-fd86-4cea-b245-f5913af11ba0)
+
+![UB 9](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a56e9166-cac8-4b60-b952-4d888dbcf9d4)
+
 
 
 
