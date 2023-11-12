@@ -8,9 +8,9 @@
 
 ## Content
 
-* Configuring pfSense firewall for Network Segmentation & Security
+* Installing pfSense firewall for Network Segmentation & Security
 * Configuring Security Onion
-* Configuring Kali Linux as an attack machine
+* Configuring Kali & pfSense Web Interface
 * Configuring a Windows Server as a Domain Controller
 * Configuring Windows desktops
 * Configuring Splunk
@@ -33,7 +33,7 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 ![Topology](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/0b241074-ebd4-4226-8dc9-41c66a6ea9ed)
 
 
-## Configuring pfSense
+## Installing pfSense
 
 * We begin by opening up VMware, creating a new virtual machine, and mounting the pfSense ISO.
 
@@ -122,8 +122,43 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 
 ![UB 9](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a56e9166-cac8-4b60-b952-4d888dbcf9d4)
 
+## Configuring Kali & pfSense Web Interface
 
+* Installing Kali was straightforward since I used a VMware image. The only modification I made was adding an additional network adapter.
 
+![KL 1](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/8e0eafff-663d-4ce8-8c45-50a1768a13cc)
 
+![KL 2](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/9b962540-8fae-4fed-bf84-f11e452a91d1)
 
+* Using the Kali machine I navigated to `192.168.1.1` in order to use the pfSense web interface.
+
+![KL 3](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/071c807f-9ddc-4b5e-937d-37a556ba8c4e)
+
+![KL 4](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/23b34597-733b-4c1e-9197-c003b5321146)
+
+* I assigned the DNS.
+
+![KL 5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/b127d229-ccc0-4800-b182-b4c6750d0bf4)
+
+* I also turned off the following security features in order to make the victim network more susceptible to attacks of different kinds.
+
+![KL 6](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/29e83cc0-598f-4668-9921-89d00e550318)
+
+![KL 7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/2f732746-44d2-4aee-bf48-4c2adea43fd0)
+
+* I then modified the names of the different interfaces to make them easier to recognize.
+
+![KL 8](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/6c166f6c-8637-4cf4-a044-a2da22893a84)
+
+![KL 9](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/d5c18508-3698-49ec-bbaf-72fae730a651)
+
+* I created a bridge, added the victim network to it, and selected the Span Port.
+
+![KL 10](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a440a6a4-5f34-4c0b-8caf-9405c2978ac5)
+
+![KL 11](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/b6328e31-09f5-43d7-acbe-04d214d1c9a4)
+
+* Finally, I created a new firewall rule to allow traffic from `any` protocol. This should give me some interesting logs and alerts later on.
+
+![KL 13](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/c618c314-dc72-4d80-9c19-40fa35f4b569)
 
