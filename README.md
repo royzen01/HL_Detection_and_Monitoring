@@ -162,3 +162,59 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 
 ![KL 13](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/c618c314-dc72-4d80-9c19-40fa35f4b569)
 
+
+## Configuring the Domain Controller
+
+* For the next section I will be setting up the Domain Controller which will be running on a Windows Server 2019 VM.
+* I started by creating the VM and assigning it to the VMnet3 network.
+
+![DC-1](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/825da6ec-e4a3-4d3d-96c6-1265266876b1)
+
+![DC-2](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/250d214e-329c-46a5-abb9-dbb902ff77f7)
+
+* Then I proceeded with the standard Windows Server setup, making sure to select one of the Desktop Experience versions.
+
+![DC-3](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/2f6db01d-b164-434f-b6ac-5c2a4360a2a2)
+
+![DC-4](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/976b9dfe-d79c-414f-9f36-adfa5d0d413b)
+
+![DC-5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/046665b7-6a46-426d-b8f8-cf32ca41529f)
+
+* Once the setup was done I changed the computer's name.
+
+![DC-6](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/c99146a2-e7c8-47d5-b90b-1b335b08d9e6)
+
+* I then proceeded to add the Roles and Features necessary. I began by installing the `Active Directory Domain Services` role.
+
+![DC-7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/37306072-7a51-4e0a-bfbb-2850753e34a1)
+
+* Then I created a new domain (forest) called `homedomain.local`.
+
+![DC-8](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/4bd30241-0399-4e22-9558-ecc599618f8d)
+
+* I also needed to create a `Certificate Authority` so I added the `Active Directory Certificate Services` role.
+
+![DC-9](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/6d5787c1-60e7-4916-839f-6174971cb4ab)
+
+* Then I added the CA to homedomain.local.
+
+![DC-10](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/438202e9-d747-499b-b79e-f693b2ff02c4)
+
+![DC-11](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/d3bad1c4-f267-4282-9385-3b3d60114764)
+
+![DC-12](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/b5063853-817b-41d7-80b7-7c6db853c109)
+
+* Using AC DS I added a new user to the domain which will serve as our victim later on.
+
+![DC-13](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/3c445b23-cd5d-4f2d-a4db-7cf331abd9bb)
+
+* **For the purposes of this lab** I turned off the Windows Firewall. This is a specific use case for this project in order to view how different attacks are logged later on. 
+
+![DC-14](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/6fc50344-cea0-4191-ba56-53dfc63408be)
+
+* Lastly, I changed the IP address settings for the DC. I designed the pfSense firewall as the Default gateway as well as the DNS server.
+
+![DC-15](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/fa052d19-d1ad-4081-ae71-955250fcbdab)
+
+
+
