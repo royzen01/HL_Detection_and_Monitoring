@@ -216,5 +216,27 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 
 ![DC-15](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/fa052d19-d1ad-4081-ae71-955250fcbdab)
 
+## Configuring the client device
 
+* Like all the previous steps, I began by creating a new VM that will host Windows 10. I made sure to assign the the VM to the proper virtual network
 
+![CL-1](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/09107ba7-0ce1-483d-bc62-815203a50ac0)
+
+![CL-2](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/4aecc2d6-1150-4cc5-a393-31f33ab8bd54)
+
+* This device will be used by the user we created in the previous section while setting up the DC
+
+![CL-3](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/efa898de-ee52-4ca5-bd94-f4fcf3e7895b)
+
+* Once the OS was done installing I manually assigned the IPv4 properties.
+* This device is on the VMnet3 so the default gateway is `192.168.2.1` and the DNS server is `192.168.2.10` which is the DC (I will most likely attempt to automate this process in the future to seamlessly add new clients.)
+
+![CL-4](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/1887475f-1b9e-496a-a93f-ec9c4098230f)
+
+* I then proceeded to change the name of the device and add it to the domain.
+
+![CL-6](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/ae610608-e712-4390-b139-a74b84c99531)
+
+![CL-5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/09ba021c-191f-4183-9966-47c6e71d9563)
+
+![CL-7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/c163e633-1c83-4d07-b215-0afe57fc6b60)
