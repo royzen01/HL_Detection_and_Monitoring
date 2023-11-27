@@ -6,15 +6,16 @@
 
 <b> The goal will be to gain real-world knowledge and practice. </b>
 
+
 ## Content
 
+* Breakdown
 * Installing pfSense firewall for Network Segmentation & Security
 * Configuring Security Onion
 * Configuring Kali & pfSense Web Interface
 * Configuring a Windows Server as a Domain Controller
 * Configuring Windows desktops
 * Configuring Splunk
-* Ubuntu/CentOS/Metasploitable/DVWA/Vulnhub machines: All these are potential Linux machines that can be added to the network for exploitation, detection, or monitoring purposes.
 
 ## Breakown
 
@@ -285,5 +286,41 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 ![SP-13](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/ac0b94fa-0ce6-449d-bb01-f0259681cb2b)
 
 ![SP-14](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/92b4edad-a7e8-4e8e-91c2-600adcdf6e37)
+
+## Configuring Splunk
+
+* After installing Splunk I began the configuration to forward and receive logs. I first started by enabling the port to listen on which in this case is `9997`.
+
+![SP-15](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/928591ec-bf31-447c-9573-14337fc9383e)
+
+* Then I created an `index` that would aggregate data coming from the Domain Controller. I named the index `wineventlog`.
+
+![SP-16](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a4b1b89d-fb20-4b6e-a54a-6e43037f6084)
+
+* I returned to the DC and began the installation of `Splunk universal forwarder`.
+
+![SP-17](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/fae00a87-9adc-4e9b-8d75-80c0adcd7341)
+
+![SP-18](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/ef94a2c4-4aeb-49f4-a731-00369243f194)
+
+* Afterwards I returned to the Splunk web interface to add the universal forwarder as a data source.
+
+![SP-19](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/c4ed70b2-9ad4-4c99-a65a-f0a0e9b3a29a)
+
+![SP-20](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/e0e0bfef-94fa-4e46-b964-65acf6f7af6a)
+
+![SP-21](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/6ce6a856-41d8-4f00-aaae-63ddec653a9d)
+
+* And finally, I began searching to confirm that Splunk was properly receiving the events.
+
+![SP-22](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/ff260d10-1675-43df-b5c4-edfd70e2d58f)
+
+# Conclusion
+
+I undertook this project because I wanted to get some hands-on experience building a topology from a security perspective. My goal behind this was to create something that was unique but also functional. Of course, the scale of this project doesn't compare to any real-world scenario, but it did give me great insight into how a company might structure its private network. I still have much to learn but I find that this is a great start to having functional cybersecurity experience.
+
+# Going forward
+
+As I continue my journey as a cybersecurity professional I will be utilizing a variety of tools and services. Through the use of this home lab, I can practice and hone my skills in a safe but realistic environment. I will be diving into concepts such as Intrusion detection, and vulnerability scanning and I might even try out some Red Hat tactics.
 
 
