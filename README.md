@@ -240,3 +240,50 @@ Although Security Onion will work as a SIEM, I will also be configuring `splunk`
 ![CL-5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/09ba021c-191f-4183-9966-47c6e71d9563)
 
 ![CL-7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/c163e633-1c83-4d07-b215-0afe57fc6b60)
+
+
+## Installing Splunk
+
+* I began the next section by creating a VM that hosted an instance of Ubuntu Server. I added an additional Network Adapter and assigned it to `VMnet6`.
+
+![SP-1](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/7bdb9a92-1e15-4702-aa54-d62337b9e764)
+
+![SP-2](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/f6fa5cfc-5264-416f-9256-7b720aea6cc2)
+
+* I then proceeded with the standard Ubuntu Server installation.
+
+![SP-3](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/796b1168-f1a8-4619-ad40-863440a241fb)
+
+![SP-4](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/d25098aa-4711-4ff6-b0ab-050e9ce0b48a)
+
+![SP-5](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a615c113-7359-43e4-a456-661589cf0a64)
+
+![SP-6](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/d7ece367-9ce4-49d7-8f99-8af0687eb501)
+
+* To simplify the process I decided to install a GUI for Ubuntu Server. In order to do this I began by installing `tasksel` using the CLI.
+
+![SP-7](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/4d79b1d9-91a3-4583-ae40-1d62fcb57410)
+
+* Then I used tasksel to install Ubuntu Desktop
+
+![SP-8](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/fcbc8a62-c7e9-4241-a405-eb1c57e8918f)
+
+![SP-9](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/a5a601bb-9e7e-492e-a629-798047b1c13a)
+
+* Next, I downloaded the Splunk installer from the official Splunk website and unpacked it.
+
+![SP-10](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/73ba2a2a-932b-4941-bfe0-827b2c32f5da)
+
+* Once unpacked, I navigated to the `bin` folder and started the Splunk service.
+
+![SP-11](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/bdf35c6f-3769-494c-b06a-9fd2c8025f33)
+
+![SP-12](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/58447877-699d-4965-9e10-ae6bf9f1f0c8)
+
+* Finally, I navigated to the Splunk web interface address, which in this case was `http://splunk:8000`, and confirmed the service was up and running.
+
+![SP-13](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/ac0b94fa-0ce6-449d-bb01-f0259681cb2b)
+
+![SP-14](https://github.com/royzen01/HL_Detection_and_Monitoring/assets/13005742/92b4edad-a7e8-4e8e-91c2-600adcdf6e37)
+
+
